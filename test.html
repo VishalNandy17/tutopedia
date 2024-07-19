@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Tutors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF5F7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #FF69B4;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* ... (keep all other existing styles) ... */
+    </style>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF5F7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .why-us-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .col-left, .col-right {
+            width: 48%;
+            position: relative;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #FF69B4;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .icon {
+            font-size: 24px;
+            color: #FF69B4;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .features-list li:hover .icon {
+            transform: translateX(5px);
+        }
+
+        .features-list h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .features-list p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .btn-read-more {
+            display: inline-block;
+            background-color: #FF69B4;
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn-read-more:hover {
+            background-color: #FF1493;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background-color: #FFB6C1;
+            top: -150px;
+            left: -150px;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background-color: #FF69B4;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        @media (max-width: 768px) {
+            .col-left, .col-right {
+                width: 100%;
+                margin-bottom: 50px;
+            }
+        }
+    </style>
+    <style>
+        @keyframes blob {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      </style>
+    <style>
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(100px, 100px) rotate(180deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        .moving-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 15s infinite;
+        }
+        .moving-shape:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+        .moving-shape:nth-child(3) {
+            bottom: 10%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+    </style>
+    
+    <style>
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out;
+        }
+        .perspective {
+            perspective: 1000px;
+        }
+        .flip-card {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .lang-card:hover .flip-card {
+            transform: rotateY(180deg);
+        }
+        .flip-card > div {
+            backface-visibility: hidden;
+        }
+        .flip-card > div:last-child {
+            transform: rotateY(180deg);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+        }
+    </style>
+    
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .float { animation: float 6s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="fixed w-full z-50 transition-all duration-500" id="header">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo.png" alt="Language Tutors" class="h-8 w-auto">
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="text-white hover:text-pink-500 transition-colors duration-300">Home</a>
+                <a href="#" class="text-white hover:text-pink-500 transition-colors duration-300">Courses</a>
+                <a href="#" class="text-white hover:text-pink-500 transition-colors duration-300">Our Teachers</a>
+                <a href="#" class="text-white hover:text-pink-500 transition-colors duration-300">About</a>
+                <a href="#" class="text-white hover:text-pink-500 transition-colors duration-300">Contact</a>
+            </div>
+            <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition-colors duration-300">
+                Find A Tutor
+            </button>
+            <div class="md:hidden">
+                <button id="mobileMenuBtn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobileMenu" class="hidden md:hidden bg-white absolute top-full left-0 w-full shadow-md">
+            <div class="container mx-auto px-6 py-3">
+                <a href="#" class="block py-2 text-gray-800 hover:text-pink-500">Home</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-pink-500">Courses</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-pink-500">Our Teachers</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-pink-500">About</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-pink-500">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="image1.png" alt="Background" class="object-cover w-full h-full">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+            </div>
+            <div class="relative z-10 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <span class="block">Start learning a new</span>
+                    <span class="block">Skill today <span class="underline">with the best</span></span>
+                    <span class="block">online tutors!</span>
+                </h1>
+                <p class="text-xl mb-8">In look for a mentor?</p>
+                <a href="#" class="bg-pink-500 text-white px-8 py-3 rounded-full text-lg hover:bg-pink-600 transition-colors duration-300">
+                    Get Started
+                </a>
+            </div>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 float">
+                <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <section class="how-it-works bg-gradient-to-br from-blue-50 to-purple-50 py-24 relative overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="text-5xl font-bold mb-4 text-gray-800 text-center">Your Language Learning Journey</h2>
+                <p class="text-xl text-gray-600 mb-12 text-center max-w-2xl mx-auto">Embark on a personalized adventure to master a new language with our innovative platform and expert tutors</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <img src="image.png" alt="Language Learning" class="rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-md">
+                            <p class="text-2xl font-bold text-pink-500">20,000+</p>
+                            <p class="text-gray-600">Active Learners</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start group bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                            <div class="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mr-4 flex-shrink-0 transition-all duration-300 group-hover:bg-pink-600 group-hover:scale-110">1</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2 text-gray-800">Discover Your Perfect Tutor</h3>
+                                <p class="text-gray-600">Browse our curated network of 500+ certified language tutors. Use advanced filters to find the ideal match based on teaching style, specialization, and availability.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start group bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                            <div class="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mr-4 flex-shrink-0 transition-all duration-300 group-hover:bg-pink-600 group-hover:scale-110">2</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2 text-gray-800">Customize Your Learning Plan</h3>
+                                <p class="text-gray-600">Work with your tutor to create a tailored curriculum that aligns with your goals, whether it's for business, travel, or personal growth. Access a library of 1000+ interactive learning materials.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start group bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                            <div class="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mr-4 flex-shrink-0 transition-all duration-300 group-hover:bg-pink-600 group-hover:scale-110">3</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2 text-gray-800">Immersive Learning Experience</h3>
+                                <p class="text-gray-600">Engage in live 1-on-1 video sessions with cutting-edge virtual classrooms. Practice with AI-powered speech recognition tools and join language exchange communities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <a href="#" class="inline-block bg-pink-500 text-white px-8 py-3 rounded-full text-lg hover:bg-pink-600 transition-colors duration-300 transform hover:scale-105">Start Your Free Trial</a>
+                    <p class="mt-4 text-gray-600">No credit card required. 7-day free access to all features.</p>
+                </div>
+            </div>
+            
+            <!-- Enhanced background shapes -->
+            <div class="absolute top-0 left-0 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-32 left-1/2 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        </section>
+        
+        <section class="why-us-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-left">
+                        <h2 class="section-subtitle">Why us</h2>
+                        <h1 class="section-title">Learn a new language online anywhere, anytime!</h1>
+                        <p class="section-description">
+                            Embark on a journey of linguistic discovery with our innovative online platform. We've reimagined language learning to fit seamlessly into your lifestyle.
+                        </p>
+                        <ul class="features-list">
+                            <li>
+                                <span class="icon">↗</span>
+                                <div>
+                                    <h3>Customized learning</h3>
+                                    <p>Tailor your learning experience to match your unique goals and pace, ensuring efficient and effective progress.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">↗</span>
+                                <div>
+                                    <h3>Expert guidance at your fingertips</h3>
+                                    <p>Access a network of professional tutors ready to support you at every step of your language learning journey.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">↗</span>
+                                <div>
+                                    <h3>Flexibility redefined</h3>
+                                    <p>Learn whenever and wherever suits you best, breaking free from the constraints of traditional classrooms.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-right">
+                        <h2 class="section-subtitle">About us</h2>
+                        <h1 class="section-title">" We prepare you to achieve your goals with professional tutors. "</h1>
+                        <p class="section-description">
+                            Our mission is to empower you with language skills that open doors to new opportunities. With our expert tutors and innovative platform, we're committed to your success in mastering a new language.
+                        </p>
+                        <a href="#" class="btn-read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="decorative-circle circle-1"></div>
+            <div class="decorative-circle circle-2"></div>
+        </section>
+
+
+        <section class="py-24 bg-gray-100 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 opacity-50"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="text-5xl font-bold mb-16 text-center text-gray-800">Discover Our Innovative Subjects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Subject Card 1 -->
+                    <div class="subject-card group">
+                        <div class="relative bg-white rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-xl">
+                            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"></div>
+                            <div class="relative z-10">
+                                <div class="text-5xl mb-6 text-blue-500 group-hover:text-blue-600 transition-colors duration-300">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3 class="text-3xl font-semibold text-gray-800 mb-4">Computer Science</h3>
+                                <p class="text-gray-600 mb-6">Dive into the world of algorithms, data structures, and cutting-edge technologies.</p>
+                                <a href="#" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors duration-300 transform hover:scale-105">Explore Now</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Subject Card 2 -->
+                    <div class="subject-card group">
+                        <div class="relative bg-white rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-xl">
+                            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-200 to-teal-200 opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"></div>
+                            <div class="relative z-10">
+                                <div class="text-5xl mb-6 text-green-500 group-hover:text-green-600 transition-colors duration-300">
+                                    <i class="fas fa-atom"></i>
+                                </div>
+                                <h3 class="text-3xl font-semibold text-gray-800 mb-4">Quantum Physics</h3>
+                                <p class="text-gray-600 mb-6">Unravel the mysteries of the universe at the quantum level.</p>
+                                <a href="#" class="inline-block bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 transform hover:scale-105">Explore Now</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Subject Card 3 -->
+                    <div class="subject-card group">
+                        <div class="relative bg-white rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-xl">
+                            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-200 to-pink-200 opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"></div>
+                            <div class="relative z-10">
+                                <div class="text-5xl mb-6 text-red-500 group-hover:text-red-600 transition-colors duration-300">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3 class="text-3xl font-semibold text-gray-800 mb-4">Neuroscience</h3>
+                                <p class="text-gray-600 mb-6">Explore the intricate workings of the human brain and nervous system.</p>
+                                <a href="#" class="inline-block bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition-colors duration-300 transform hover:scale-105">Explore Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Animated background shapes -->
+            <div class="absolute inset-0 z-0 overflow-hidden">
+                <div class="moving-shape"></div>
+                <div class="moving-shape"></div>
+                <div class="moving-shape"></div>
+            </div>
+        </section>
+
+        
+
+        </main>
+        
+        <script>
+            // GSAP animations
+            gsap.registerPlugin(ScrollTrigger);
+        
+            const subjectCards = document.querySelectorAll('.subject-card');
+        
+            subjectCards.forEach((card, index) => {
+                gsap.from(card, {
+                    opacity: 0,
+                    y: 100,
+                    rotation: 5,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top bottom-=100",
+                        end: "top center",
+                        toggleActions: "play none none reverse"
+                    },
+                    delay: index * 0.2
+                });
+            });
+        
+            // Hover animations
+            subjectCards.forEach(card => {
+                const icon = card.querySelector('i');
+                const exploreBtn = card.querySelector('a');
+        
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(icon, { scale: 1.2, rotate: 360, duration: 0.5, ease: "power2.out" });
+                    gsap.to(exploreBtn, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+                });
+        
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(icon, { scale: 1, rotate: 0, duration: 0.5, ease: "power2.out" });
+                    gsap.to(exploreBtn, { scale: 1, duration: 0.3, ease: "power2.out" });
+                });
+            });
+        </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const header = document.getElementById('header');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // Header transition
+        ScrollTrigger.create({
+            start: "top top",
+            end: "bottom top",
+            onUpdate: (self) => {
+                const progress = self.progress;
+                gsap.to(header, {
+                    backgroundColor: `rgba(255, 255, 255, ${progress})`,
+                    boxShadow: `0 4px 6px -1px rgba(0, 0, 0, ${0.1 * progress}), 0 2px 4px -1px rgba(0, 0, 0, ${0.06 * progress})`,
+                    duration: 0.3
+                });
+                gsap.to(header.querySelectorAll('a'), {
+                    color: `rgb(${255 - progress * 255}, ${255 - progress * 255}, ${255 - progress * 255})`,
+                    duration: 0.3
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hero animations
+        gsap.from("h1 span", {
+            opacity: 0,
+            y: 50,
+            stagger: 0.2,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        gsap.from("p, a.bg-pink-500", {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.8,
+            ease: "power3.out"
+        });
+
+        // Floating effect for the down arrow
+        gsap.to(".float", {
+            y: -20,
+            duration: 1.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
+    </script>
+
+    
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    
+        const howItWorksSection = document.querySelector('.how-it-works');
+        const steps = howItWorksSection.querySelectorAll('.flex.items-start');
+        const image = howItWorksSection.querySelector('img');
+        const statBox = howItWorksSection.querySelector('.absolute');
+    
+        gsap.from(howItWorksSection.querySelector('h2'), {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: howItWorksSection,
+                start: "top 80%",
+            }
+        });
+    
+        gsap.from(howItWorksSection.querySelector('p'), {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.3,
+            scrollTrigger: {
+                trigger: howItWorksSection,
+                start: "top 80%",
+            }
+        });
+    
+        gsap.from(image, {
+            opacity: 0,
+            x: -50,
+            duration: 1,
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: howItWorksSection,
+                start: "top 80%",
+            }
+        });
+    
+        gsap.from(statBox, {
+            opacity: 0,
+            scale: 0.5,
+            duration: 1,
+            delay: 1,
+            scrollTrigger: {
+                trigger: howItWorksSection,
+                start: "top 80%",
+            }
+        });
+    
+        steps.forEach((step, index) => {
+            gsap.from(step, {
+                opacity: 0,
+                x: 50,
+                duration: 1,
+                delay: 0.7 + (index * 0.2),
+                scrollTrigger: {
+                    trigger: howItWorksSection,
+                    start: "top 80%",
+                }
+            });
+        });
+    
+        gsap.from(howItWorksSection.querySelector('.mt-16'), {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 1.5,
+            scrollTrigger: {
+                trigger: howItWorksSection,
+                start: "top 80%",
+            }
+        });
+    </script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".section-subtitle", {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".why-us-section",
+                start: "top 80%"
+            }
+        });
+
+        gsap.from(".section-title", {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.3,
+            scrollTrigger: {
+                trigger: ".why-us-section",
+                start: "top 80%"
+            }
+        });
+
+        gsap.from(".section-description", {
+            opacity: 0,
+            y: 40,
+            duration: 1,
+            delay: 0.6,
+            scrollTrigger: {
+                trigger: ".why-us-section",
+                start: "top 80%"
+            }
+        });
+
+        gsap.from(".features-list li", {
+            opacity: 0,
+            x: -50,
+            duration: 1,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: ".features-list",
+                start: "top 80%"
+            }
+        });
+
+        gsap.from(".btn-read-more", {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            delay: 1,
+            scrollTrigger: {
+                trigger: ".col-right",
+                start: "top 80%"
+            }
+        });
+
+        gsap.from(".decorative-circle", {
+            scale: 0,
+            opacity: 0,
+            duration: 1.5,
+            ease: "elastic.out(1, 0.3)",
+            scrollTrigger: {
+                trigger: ".why-us-section",
+                start: "top 80%"
+            }
+        });
+    </script>
+</body>
+</html>
